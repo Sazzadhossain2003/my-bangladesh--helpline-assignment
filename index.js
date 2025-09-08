@@ -33,3 +33,14 @@ copyButtons.forEach((btn) => {
         addCallHistory(number);
     });
 });
+
+// call button
+const callButtons = document.querySelectorAll('.call-btn');
+
+callButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+        const number = btn.closest('.bg-white').querySelector('h2').nextElementSibling.textContent;
+        alert(`Calling: ${number}`);
+        addCallHistory(number);
+    });
+});
