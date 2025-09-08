@@ -15,3 +15,21 @@ hearts.forEach((heart) => {
         loveCount.textContent = count;
     });
 });
+
+// copy number
+const copyButtons = document.querySelectorAll('.btn i.fa-copy');
+
+copyButtons.forEach((btn) => {
+    btn.parentElement.addEventListener('click', () => {
+        const number = btn.closest('.bg-white').querySelector('h2').nextElementSibling.textContent;
+        navigator.clipboard.writeText(number);
+        alert(`Copied: ${number}`);
+
+        // Update copy count
+        const copySpan = document.querySelector('.span-tag');
+        copySpan.textContent = parseInt(copySpan.textContent) + 1;
+
+        // Add to Call History
+        addCallHistory(number);
+    });
+});
